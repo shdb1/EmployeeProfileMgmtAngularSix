@@ -11,7 +11,9 @@ import { LoginmoduleComponent } from './components/loginmodule/loginmodule.compo
 import { ViewstudentsComponent } from './components/viewstudents/viewstudents.component';
 import { RegisterstudentComponent } from './components/registerstudent/registerstudent.component';
 import { LoginService } from './services/login.service';
-
+import { FormsModule }   from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
+import { ViewstudentService } from './services/viewstudent.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,13 @@ import { LoginService } from './services/login.service';
   ],
   imports: [
     BrowserModule,
-    StudentmgmtroutingModule
+    StudentmgmtroutingModule,
+    FormsModule,
+    HttpClientModule
+
+
   ],
-  providers: [LoginService],
+  providers: [LoginService,ViewstudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

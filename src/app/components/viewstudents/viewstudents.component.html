@@ -1,3 +1,30 @@
-<p>
-  viewstudents works!
-</p>
+<h1>Student Login Form</h1>
+    <form (ngSubmit)="onSubmit(studentModel)" #studentForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+
+               [(ngModel)]="studentModel.studentName" name="name"
+               #name="ngModel">
+
+      </div>
+
+      <div class="form-group">
+        <label for="year">Year</label>
+        <input type="text" class="form-control" id="year"
+               [(ngModel)]="studentModel.studentAdmissionYear" name="year">
+      </div>
+
+      <div class="form-group">
+        <label for="branch">Student Branch</label>
+        <select class="form-control" id="branch"
+                required
+                [(ngModel)]="studentModel.studentBranch" name="branch"
+                #branche="ngModel">
+          <option *ngFor="let branch of branches" [value]="branches">{{branch}}</option>
+        </select>
+
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!studentForm.form.valid">Submit</button>
+    </form>
